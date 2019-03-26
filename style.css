@@ -1,0 +1,158 @@
+body {
+	text-align: center;
+	margin: 0;
+}
+
+div {
+	/*border: solid 1px red;*/
+}
+
+.title {
+	margin: 10px;
+}
+
+.instructions {
+	padding: 20px;
+}
+
+h1 {
+	font-family: sans-serif;
+ 	letter-spacing: 1px;
+ 	font-weight: 400;
+ 	font-size: 45px;
+ 	text-transform: uppercase;
+ 	margin: 0;
+ }
+
+h2 {
+	font-family: sans-serif;
+ 	color: #0D2C40;
+ 	letter-spacing: 1px;
+ 	font-weight: 600;
+ 	font-size: 20px;
+ 	text-transform: uppercase;
+}
+
+a {
+ 	text-decoration: none;
+ 	text-transform: uppercase;
+ 	font-family: sans-serif;
+ 	color: #FFFFFF;
+ 	letter-spacing: 1px;
+ 	font-weight: 600;
+ 	font-size: 14px;
+ 	margin: 0px;
+ }
+
+
+p {
+	font-family: serif;
+	line-height: 26px;
+ 	font-size: 18px;
+ 	margin: 0;
+}
+
+.pageWrapper {
+	width: 850px;
+	margin: 35px auto;
+}
+
+.footer {
+	text-transform: uppercase;
+	padding: 0 20px;
+	background-color: #0D2C40;
+	color: #FFFFFF;
+	letter-spacing: .08em;
+	font-size: 12px;
+	font-weight: 500;
+	padding: 16px 0;
+	font-family: sans-serif;
+}
+
+.gameArea {
+	display: flex;
+	flex-direction: column;
+	width: 490px;
+	margin: 0 auto;
+
+}
+
+.gameHeader {
+	background-color: #73CE99;
+	width: 490px;
+	height: 40px;
+	padding: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.gameBoard {
+	background-color: #C4C4C4;
+	background-color: #000000;
+	height: 320px;
+	width: 490px;
+	padding: 10px;
+}
+
+
+.tile {
+	background-color:#000000;
+	border-radius:400px;
+	display:inline-block;
+	cursor:pointer;
+	padding:30px 30px;
+}
+
+.tile:active {
+	position:relative;
+	top:1px;
+}
+
+#red {
+	border:5px solid red;
+}
+
+#blue {
+	border:5px solid blue;
+}
+
+#green {
+	border:5px solid green;
+}
+
+#yellow {
+	border:5px solid yellow;
+}
+
+#red.bk {
+	background-color: red;
+}
+
+#blue.bk {
+	background-color: blue;
+}
+
+#green.bk {
+	background-color: green;
+}
+
+#yellow.bk {
+	background-color: yellow;
+}
+
+#red:active {
+	background-color: red;
+}
+
+#blue:active {
+	background-color: blue;
+}
+
+#green:active {
+	background-color: green;
+}
+
+#yellow:active {
+	background-color: yellow;
+}
