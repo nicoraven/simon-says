@@ -58,11 +58,14 @@ function convert(){
 
 // on load, ready start button
 window.onload = function(){
-    document.getElementById("start").addEventListener('click', startGame);
+    var start = document.getElementById("start");
+    start.addEventListener('click', startGame);
+    document.getElementById("reset").addEventListener('click', resetGame);
 };
 
 // when player clicks on start game, generate sequence, bump round counter
 function startGame(){
+    start.style.visibility = "hidden";
     generateSequence();
     listenToPlayer();
     newRound();
@@ -133,11 +136,12 @@ function checkSequence(){
             best = round;
             displayBest.innerText = (best-1);
             resetGame();
+            return;
         }
         else {
             resetGame();
+            return;
         }
-        return;
     }
     //else player has clicked correct sequence
     else {
@@ -172,5 +176,6 @@ function resetGame() {
     playerSequence = [];
     offset = 0;
     round = 0;
-    displayRound.innerText = "___"
+    displayRound.innerText = "___";
+    start.style.visibility = "visible";
 }
