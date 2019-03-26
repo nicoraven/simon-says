@@ -154,7 +154,7 @@ function checkSequence(){
                 // displays current best round
                 if (round > best) {
                     best = round;
-                    displayBest.innerText = (best-1);
+                    displayBest.innerText = (best);
                     resetGame();
                 }
                 else {

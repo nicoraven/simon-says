@@ -1,6 +1,8 @@
 body {
 	text-align: center;
 	margin: 0;
+	background-color: #F2F2F2;
+	/*background-color: #000000;*/
 }
 
 div {
@@ -16,7 +18,7 @@ div {
 }
 
 h1 {
-	font-family: sans-serif;
+	font-family: Verdana, sans-serif;
  	letter-spacing: 1px;
  	font-weight: 400;
  	font-size: 45px;
@@ -25,11 +27,11 @@ h1 {
  }
 
 h2 {
-	font-family: sans-serif;
+	font-family: Verdana, sans-serif;
  	color: #0D2C40;
  	letter-spacing: 1px;
  	font-weight: 600;
- 	font-size: 20px;
+ 	font-size: 18px;
  	text-transform: uppercase;
 }
 
@@ -40,15 +42,15 @@ a {
  	color: #FFFFFF;
  	letter-spacing: 1px;
  	font-weight: 600;
- 	font-size: 14px;
+ 	font-size: 12px;
  	margin: 0px;
  }
 
 
 p {
-	font-family: serif;
+	font-family: Verdana, serif;
 	line-height: 26px;
- 	font-size: 18px;
+ 	font-size: 16px;
  	margin: 0;
 }
 
@@ -88,11 +90,19 @@ p {
 }
 
 .gameBoard {
-	background-color: #C4C4C4;
+	/*background-color: #C4C4C4;*/
 	background-color: #000000;
 	height: 320px;
 	width: 490px;
 	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.row {
+	display: block;
 }
 
 
@@ -101,7 +111,8 @@ p {
 	border-radius:400px;
 	display:inline-block;
 	cursor:pointer;
-	padding:30px 30px;
+	padding:40px 40px;
+	margin: 10px;
 }
 
 .tile:active {
@@ -110,19 +121,19 @@ p {
 }
 
 #red {
-	border:5px solid red;
+	border:8px solid red;
 }
 
 #blue {
-	border:5px solid blue;
+	border:8px solid #52F8FF;
 }
 
 #green {
-	border:5px solid green;
+	border:8px solid #9BFF0D;
 }
 
 #yellow {
-	border:5px solid yellow;
+	border:8px solid #E89B0C;
 }
 
 #red.bk {
@@ -130,15 +141,15 @@ p {
 }
 
 #blue.bk {
-	background-color: blue;
+	background-color: #52F8FF;
 }
 
 #green.bk {
-	background-color: green;
+	background-color: #9BFF0D;
 }
 
 #yellow.bk {
-	background-color: yellow;
+	background-color: #E89B0C;
 }
 
 #red:active {
@@ -146,13 +157,13 @@ p {
 }
 
 #blue:active {
-	background-color: blue;
+	background-color: #52F8FF;
 }
 
 #green:active {
-	background-color: green;
+	background-color: #9BFF0D;
 }
 
 #yellow:active {
-	background-color: yellow;
+	background-color: #E89B0C;
 }
