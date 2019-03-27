@@ -17,22 +17,57 @@
         <div class="gameArea">
             <div class="gameHeader">
                 <p>
-                    Round: <span id="round">___</span>
+                    <!-- Round: <span id="round"></span> -->
                 </p>
+                <button id="hard">Hard</button>
                 <button id="start">Start</button>
                 <button id="reset">Reset</button>
+
                 <p>
-                    Best: <span id="best">___</span>
+                    <!-- Best: <span id="best">___</span> -->
                 </p>
             </div>
             <div class="gameBoard">
                 <div class="row">
-                    <button id="red" class="tile"></button>
-                    <button id="blue" class="tile"></button>
+                    <div class="col">
+                        <button id="" class="tile extra"></button>
+                    </div>
+                    <div class="col">
+                        <button id="red" class="tile"></button>
+                    </div>
+                    <div class="col">
+                        <button id="" class="tile extra"></button>
+                    </div>
                 </div>
                 <div class="row">
-                    <button id="green" class="tile"></button>
-                    <button id="yellow" class="tile"></button>
+                    <div class="col">
+                        <button id="blue" class="tile"></button>
+                    </div>
+                    <div id="announcement" class="col">
+                        <h3 id="showRound">
+                            Round: <span id="round"></span>
+                        </h3>
+                        <h3 id="text">
+                            Game Over
+                        </h3>
+                        <h3 id="showBest">
+                            Best: <span id="best"></span>
+                        </h3>
+                    </div>
+                    <div class="col">
+                        <button id="green" class="tile"></button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button id="" class="tile extra"></button>
+                    </div>
+                    <div class="col">
+                        <button id="yellow" class="tile"></button>
+                    </div>
+                    <div class="col">
+                        <button id="" class="tile extra"></button>
+                    </div>
                 </div>
             </div>
         </div>

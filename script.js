@@ -6,6 +6,7 @@ var sequence = [0,0,0,0,0,0,0,0,0,0];
 var sequenceToShow = [];
 var playerSequence = [];
 
+// to stagger displayTile timings
 var offset = 0;
 
 var round = 0;
@@ -13,8 +14,20 @@ var best = 0;
 var displayRound = document.getElementById("round");
 var displayBest = document.getElementById("best");
 
+var gameOver = document.getElementById("text");
+var showRound = document.getElementById("showRound");
+var showBest = document.getElementById("showBest");
+
+// show time if true
 var timer = false;
+
+// randomise tiles if true
 var randomise = false;
+
+// show extra tiles if true
+var hard = false;
+
+// hide previous steps during showSequence if true
 var hideSteps = false;
 
 // not used for now
@@ -66,11 +79,31 @@ window.onload = function(){
     var start = document.getElementById("start");
     start.addEventListener('click', startGame);
     document.getElementById("reset").addEventListener('click', resetGame);
+    var hardTiles = document.getElementById("hard");
+    hardTiles.addEventListener('click', hardModeToggle);
 };
+
+// in hard mode, show extra tiles
+function hardModeToggle(){
+    hard = !hard;
+}
+
+function hardModeCheck(){
+    if (hard != true) {
+        console.log("hard mode is false");
+    } else {
+        console.log("hard mode is true");
+        var extraTiles = document.getElementsByClassName("extra");
+        for (var i = 0; i < extraTiles.length; i++) {
+        extraTiles[i].style.visibility = "visible";
+        }
+    }
+}
 
 // when player clicks on start game, generate sequence, bump round counter
 function startGame(){
     start.style.visibility = "hidden";
+    hardModeCheck();
     generateSequence();
     listenToPlayer();
     newRound();
@@ -135,16 +168,20 @@ function checkSequence(){
     var i = playerSequence.length
     if (playerSequence[i-1] !== sequence[i-1]) {
         console.log("wrong")
-        alert("Wrong sequence!\nGame Over!")
+        removePlayerListener()
+        gameOver.style.visibility = "visible";
+        showRound.style.visibility = "hidden";
+        showBest.style.visibility = "hidden";
+        // alert("Wrong sequence!\nGame Over!")
         // if current round is higher than best round, update best round
         if (round > best) {
             best = round;
             displayBest.innerText = (best-1);
-            resetGame();
+            // resetGame();
             return;
         }
         else {
-            resetGame();
+            // resetGame();
             return;
         }
     }
@@ -156,6 +193,7 @@ function checkSequence(){
             // and if the game is completed
             if (round == 10) {
                 alert("game won")
+                removePlayerListener()
                 // displays current best round
                 if (round > best) {
                     best = round;
@@ -176,11 +214,14 @@ function checkSequence(){
 
 // reset game
 function resetGame() {
-    removePlayerListener();
+    removePlayerListener()
     sequence = [];
     playerSequence = [];
     offset = 0;
     round = 0;
     displayRound.innerText = "___";
     start.style.visibility = "visible";
+    gameOver.style.visibility = "hidden";
+    showRound.style.visibility = "visible";
+    showBest.style.visibility = "visible";
 }

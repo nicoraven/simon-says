@@ -9,14 +9,6 @@ div {
 	/*border: solid 1px red;*/
 }
 
-.title {
-	margin: 10px;
-}
-
-.instructions {
-	padding: 20px;
-}
-
 h1 {
 	font-family: Verdana, sans-serif;
  	letter-spacing: 1px;
@@ -46,12 +38,19 @@ a {
  	margin: 0px;
  }
 
-
 p {
 	font-family: Verdana, serif;
 	line-height: 26px;
  	font-size: 16px;
  	margin: 0;
+}
+
+.title {
+	margin: 10px;
+}
+
+.instructions {
+	padding: 20px;
 }
 
 .pageWrapper {
@@ -92,7 +91,7 @@ p {
 .gameBoard {
 	/*background-color: #C4C4C4;*/
 	background-color: #F2F2F2;
-	height: 320px;
+	height: 360px;
 	width: 490px;
 	padding: 10px;
 	display: flex;
@@ -102,9 +101,31 @@ p {
 }
 
 .row {
-	display: block;
+	display: flex;
+	align-items: center;
 }
 
+.col {
+	display: inline-block;
+	position: relative;
+	height: 120px;
+	width: 120px;
+}
+
+h3 {
+	margin: 0 auto;
+	padding: 0px;
+}
+
+#announcement {
+	display: flex;
+	background-color: #F2F2F2;
+	justify-content: center;
+	align-items: center;
+	flex-flow: column wrap;
+	/*margin: 0px;
+	padding: 0px;*/
+}
 
 .tile {
 	background-color:#F2F2F2;
@@ -167,4 +188,14 @@ p {
 
 #yellow:active {
 	background-color: #E89B0C;
+}
+
+#text {
+	font-size: 24px;
+	color: red;
+	visibility: hidden;
+}
+
+.extra {
+	visibility: hidden;
 }
