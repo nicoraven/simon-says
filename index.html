@@ -10,21 +10,25 @@
         <div class="title">
             <h1>Simon Says!</h1>
         </div>
-        <div class="instructions">
-            <h2>Instructions</h2>
-            <p>Do what Simon says in the order he tells you! When you click on Start, a sequence of colours will flash one at the time. Click on the tiles in the sequence shown to win the round. The rounds will increase in difficulty by showing a longer sequence to replicate!</p>
+        <div class="menu">
+            <div>
+                <button class="accordion">Instructions</button>
+                <div class="panel">
+                    <p>Do what Simon says in the order he tells you! When you click on Start, a sequence of colours will flash one at the time. Click on the tiles in the sequence shown to progress through a total of ten rounds. The rounds will increase in difficulty by showing a longer sequence to replicate!</p>
+                </div>
+            </div>
+            <div>
+                <button class="accordion">Hard Mode?</button>
+                <div class="panel">
+                    <p>More Colours! More tiles! And we'll only show you the newest colour in the sequence each round...</p>
+                </div>
+            </div>
         </div>
         <div class="gameArea">
             <div class="gameHeader">
-                <p>
-                    <!-- Round: <span id="round"></span> -->
-                </p>
-                <button id="hard">Hard</button>
-                <button id="start">Start</button>
-                <button id="reset">Reset</button>
-                <p>
-                    <!-- Best: <span id="best">___</span> -->
-                </p>
+                <button id="hard" class="gameOptions">Hard</button>
+                <button id="start" class="gameOptions">Start</button>
+                <button id="reset" class="gameOptions">Reset</button>
             </div>
             <div class="gameBoard">
                 <div class="row">
