@@ -202,15 +202,33 @@ function newRound(){
 
 // when next round triggers, flash lights based on sequence
 function showSequence(){
-    for (var i = 0; i < round; i++) {
-        sequenceToShow.push(convertedSequence[i])
-    };
-    sequenceToShow.map(displayTile);
+    if (hard != true) {
+        for (var i = 0; i < round; i++) {
+            sequenceToShow.push(convertedSequence[i])
+        };
+        sequenceToShow.map(displayTile);
+    }
+    else {
+        displayHardMode();
+    }
 }
 
 function displayTile(value){
     var lights = document.getElementById(value);
     // console.log(lights);
+    setTimeout(function(){
+        lights.classList.add("bk");
+    }, (500+offset));
+    setTimeout(function(){
+        lights.classList.remove("bk");
+    }, (900+offset));
+    offset += 600;
+}
+
+function displayHardMode(){
+    // only show newest sequence each round
+    var i = (round-1);
+    var lights = document.getElementById(convertedSequence[i]);
     setTimeout(function(){
         lights.classList.add("bk");
     }, (500+offset));
@@ -335,7 +353,6 @@ function resetGame() {
 }
 
 // script for accordion menu
-
 var acc = document.getElementsByClassName("accordion");
 
 for (i = 0; i < acc.length; i++) {
