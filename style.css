@@ -139,56 +139,41 @@ h3 {
 
 .tile:active {
 	position:relative;
-	top:1px;
+	top:5px;
 }
 
-/*#red {
-	border:8px solid red;
-}
+/*
+colour codes:
+one = red FF1919
+two = blue 65DDFF
+three = green 00FF48
+four = yellow FFF964
+five = purple BE55FF
+six = peach FFAD7D
+seven = brown B27758
+eight = olive B2B147
+*/
 
-#blue {
-	border:8px solid #52F8FF;
-}
-
-#green {
-	border:8px solid #9BFF0D;
-}
-
-#yellow {
-	border:8px solid #E89B0C;
-}*/
+/*base styling*/
 
 #red.bk {
-	background-color: red;
+	background-color: #FF1919;
 }
 
 #blue.bk {
-	background-color: #52F8FF;
+	background-color: #65DDFF;
 }
 
 #green.bk {
-	background-color: #9BFF0D;
+	background-color: #00FF48;
 }
 
 #yellow.bk {
-	background-color: #E89B0C;
+	background-color: #FFF964;
 }
 
-#red:active {
-	background-color: red;
-}
 
-#blue:active {
-	background-color: #52F8FF;
-}
-
-#green:active {
-	background-color: #9BFF0D;
-}
-
-#yellow:active {
-	background-color: #E89B0C;
-}
+/*Hard Mode styling:*/
 
 #text {
 	font-size: 24px;
@@ -199,3 +184,56 @@ h3 {
 .extra {
 	visibility: hidden;
 }
+
+#purple.bk {
+	background-color: #BE55FF;
+}
+
+#peach.bk {
+	background-color: #FFAD7D;
+}
+
+#brown.bk {
+	background-color: #B27758;
+}
+
+#olive.bk {
+	background-color: #B2B147;
+}
+
+
+/*
+unused:
+
+#one.bk {
+	background-color: red;
+}
+
+#two.bk {
+	background-color: #52F8FF;
+}
+
+#three.bk {
+	background-color: #9BFF0D;
+}
+
+#four.bk {
+	background-color: #E89B0C;
+}
+
+#one:active {
+	background-color: red;
+}
+
+#two:active {
+	background-color: #52F8FF;
+}
+
+#three:active {
+	background-color: #9BFF0D;
+}
+
+#four:active {
+	background-color: #E89B0C;
+}
+*/

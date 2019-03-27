@@ -1,10 +1,21 @@
 // random number generator for 1 - 4
 //Math.floor(Math.random() * 4) + 1;
 
+var colourOrder = [];
+
+var baseColour = ["red", "blue", "green", "yellow"]
+var hardModeColour = ["red", "blue", "green", "yellow", "purple", "peach", "brown", "olive"]
+
+var defaultBaseOrder = ["baseOne", "baseTwo", "baseThree", "baseFour"];
+var hardModeOrder = ["baseOne", "baseTwo", "baseThree", "baseFour", "extraOne", "extraTwo", "extraThree", "extraFour"];
+
+
 // default sequence before random generation
 var sequence = [0,0,0,0,0,0,0,0,0,0];
+var convertedSequence = [];
 var sequenceToShow = [];
 var playerSequence = [];
+var tilesInPlay = [];
 
 // to stagger displayTile timings
 var offset = 0;
@@ -17,6 +28,8 @@ var displayBest = document.getElementById("best");
 var gameOver = document.getElementById("text");
 var showRound = document.getElementById("showRound");
 var showBest = document.getElementById("showBest");
+
+var extraTiles = document.getElementsByClassName("extra");
 
 // show time if true
 var timer = false;
@@ -32,46 +45,94 @@ var hideSteps = false;
 
 // not used for now
 var colourCode = {
-    1: "red",
-    2: "blue",
-    3: "green",
-    4: "yellow",
+    "one": "red",
+    "two": "blue",
+    "three": "green",
+    "four": "yellow",
+    "five": "purple",
+    "six": "peach",
+    "seven": "brown",
+    "eight": "olive",
 };
 
-//number of tiles/circles in play
+// number of tiles/circles in play
 var tile = 4;
 
+// this function randomises order of elements in an array
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
 
 // sequence generator
 function generateSequence (roundNumber) {
-    for (i=0; i<10; i++) {
+    if (hard != true) {
+        // normal mode
+        for (i=0; i<10; i++) {
         sequence[i]= Math.floor(Math.random() * 4) + 1;
+        };
+    }
+    else {
+        // hard mode
+        for (i=0; i<10; i++) {
+            sequence[i]= Math.floor(Math.random() * 8) + 1;
+        };
     };
-    convert()
+    convert();
 };
 
 // convert generated sequence from number to colours
-function convert(){
-    for (var i = 0; i < sequence.length; i++) {
-        if (sequence[i] === 1) {
-            sequence[i] = "red";
-            // convertedSequence.push(sequence[i])
-        }
-        else if (sequence[i] === 2) {
-            sequence[i] = "blue";
-            // convertedSequence.push(sequence[i])
-        }
-        else if (sequence[i] === 3) {
-            sequence[i] = "green";
-            // convertedSequence.push(sequence[i])
-        }
-        else if (sequence[i] === 4) {
-            sequence[i] = "yellow";
-            // convertedSequence.push(sequence[i])
+function convert(tile){
+    convertedSequence = sequence;
+    if (hard != true) {
+        // convert sequence for normal mode
+        for (var i = 0; i < convertedSequence.length; i++) {
+            if (convertedSequence[i] === 1) {
+                convertedSequence[i] = "red";
+            }
+            else if (convertedSequence[i] === 2) {
+                convertedSequence[i] = "blue";
+            }
+            else if (convertedSequence[i] === 3) {
+                convertedSequence[i] = "green";
+            }
+            else if (convertedSequence[i] === 4) {
+                convertedSequence[i] = "yellow";
+            }
         }
     }
-    console.log(sequence);
-    // console.log(convertedSequence)
+    else {
+        // convert sequence for hard mode
+        for (var i = 0; i < convertedSequence.length; i++) {
+            if (convertedSequence[i] === 1) {
+                convertedSequence[i] = "red";
+            }
+            else if (convertedSequence[i] === 2) {
+                convertedSequence[i] = "blue";
+            }
+            else if (convertedSequence[i] === 3) {
+                convertedSequence[i] = "green";
+            }
+            else if (convertedSequence[i] === 4) {
+                convertedSequence[i] = "yellow";
+            }
+            else if (convertedSequence[i] === 5) {
+                convertedSequence[i] = "purple";
+            }
+            else if (convertedSequence[i] === 6) {
+                convertedSequence[i] = "peach";
+            }
+            else if (convertedSequence[i] === 7) {
+                convertedSequence[i] = "brown";
+            }
+            else if (convertedSequence[i] === 8) {
+                convertedSequence[i] = "olive";
+            }
+        }
+    };
+    console.log(convertedSequence);
 }
 
 // on load, ready start button
@@ -83,28 +144,48 @@ window.onload = function(){
     hardTiles.addEventListener('click', hardModeToggle);
 };
 
-// in hard mode, show extra tiles
+// toggles hard mode on/off
 function hardModeToggle(){
     hard = !hard;
 }
 
-function hardModeCheck(){
+// in hard mode, show extra tiles
+function hardModeShow(){
     if (hard != true) {
         console.log("hard mode is false");
+        for (var i = 0; i < extraTiles.length; i++) {
+            extraTiles[i].style.visibility = "hidden";
+        }
     } else {
         console.log("hard mode is true");
-        var extraTiles = document.getElementsByClassName("extra");
         for (var i = 0; i < extraTiles.length; i++) {
-        extraTiles[i].style.visibility = "visible";
+            extraTiles[i].style.visibility = "visible";
         }
     }
+}
+
+// assigns colours to tiles
+function assignTile(){
+    if (hard != true) {
+        colourOrder = baseColour;
+        shuffleArray(colourOrder);
+        tilesInPlay = document.getElementsByClassName("base");
+    } else {
+        colourOrder = hardModeColour;
+        shuffleArray(colourOrder);
+        tilesInPlay = document.getElementsByClassName("tile");
+    }
+    for (var i = 0; i < colourOrder.length; i++) {
+            tilesInPlay[i].id = colourOrder[i];
+        }
 }
 
 // when player clicks on start game, generate sequence, bump round counter
 function startGame(){
     start.style.visibility = "hidden";
-    hardModeCheck();
+    hardModeShow();
     generateSequence();
+    assignTile();
     listenToPlayer();
     newRound();
 }
@@ -122,7 +203,7 @@ function newRound(){
 // when next round triggers, flash lights based on sequence
 function showSequence(){
     for (var i = 0; i < round; i++) {
-        sequenceToShow.push(sequence[i])
+        sequenceToShow.push(convertedSequence[i])
     };
     sequenceToShow.map(displayTile);
 }
@@ -141,18 +222,42 @@ function displayTile(value){
 
 // add event listeners for clicks on tiles
 function listenToPlayer(){
-    document.getElementById("red").addEventListener('click', pushPlayerSequence);
-    document.getElementById("blue").addEventListener('click', pushPlayerSequence);
-    document.getElementById("green").addEventListener('click', pushPlayerSequence);
-    document.getElementById("yellow").addEventListener('click', pushPlayerSequence);
+    if (hard != true) {
+        document.getElementById("red").addEventListener('click', pushPlayerSequence);
+        document.getElementById("blue").addEventListener('click', pushPlayerSequence);
+        document.getElementById("green").addEventListener('click', pushPlayerSequence);
+        document.getElementById("yellow").addEventListener('click', pushPlayerSequence);
+    }
+    else {
+        document.getElementById("red").addEventListener('click', pushPlayerSequence);
+        document.getElementById("blue").addEventListener('click', pushPlayerSequence);
+        document.getElementById("green").addEventListener('click', pushPlayerSequence);
+        document.getElementById("yellow").addEventListener('click', pushPlayerSequence);
+        document.getElementById("purple").addEventListener('click', pushPlayerSequence);
+        document.getElementById("peach").addEventListener('click', pushPlayerSequence);
+        document.getElementById("brown").addEventListener('click', pushPlayerSequence);
+        document.getElementById("olive").addEventListener('click', pushPlayerSequence);
+    }
 };
 
 // remove event listeners for clicks on tiles
 function removePlayerListener(){
-    document.getElementById("red").removeEventListener('click', pushPlayerSequence);
-    document.getElementById("blue").removeEventListener('click', pushPlayerSequence);
-    document.getElementById("green").removeEventListener('click', pushPlayerSequence);
-    document.getElementById("yellow").removeEventListener('click', pushPlayerSequence);
+    if (hard != true) {
+        document.getElementById("red").addEventListener('click', pushPlayerSequence);
+        document.getElementById("blue").addEventListener('click', pushPlayerSequence);
+        document.getElementById("green").addEventListener('click', pushPlayerSequence);
+        document.getElementById("yellow").addEventListener('click', pushPlayerSequence);
+    }
+    else {
+        document.getElementById("red").addEventListener('click', pushPlayerSequence);
+        document.getElementById("blue").addEventListener('click', pushPlayerSequence);
+        document.getElementById("green").addEventListener('click', pushPlayerSequence);
+        document.getElementById("yellow").addEventListener('click', pushPlayerSequence);
+        document.getElementById("purple").addEventListener('click', pushPlayerSequence);
+        document.getElementById("peach").addEventListener('click', pushPlayerSequence);
+        document.getElementById("brown").addEventListener('click', pushPlayerSequence);
+        document.getElementById("olive").addEventListener('click', pushPlayerSequence);
+    }
 };
 
 //add clicks into playerSequence
@@ -216,10 +321,13 @@ function checkSequence(){
 function resetGame() {
     removePlayerListener()
     sequence = [];
+    colourOrder = [];
+    convertedSequence = [];
     playerSequence = [];
+    tilesInPlay;
     offset = 0;
     round = 0;
-    displayRound.innerText = "___";
+    displayRound.innerText = "";
     start.style.visibility = "visible";
     gameOver.style.visibility = "hidden";
     showRound.style.visibility = "visible";
