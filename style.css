@@ -91,7 +91,7 @@ p {
 
 .gameBoard {
 	/*background-color: #C4C4C4;*/
-	background-color: #000000;
+	background-color: #F2F2F2;
 	height: 320px;
 	width: 490px;
 	padding: 10px;
@@ -107,12 +107,13 @@ p {
 
 
 .tile {
-	background-color:#000000;
+	background-color:#F2F2F2;
 	border-radius:400px;
 	display:inline-block;
 	cursor:pointer;
 	padding:40px 40px;
 	margin: 10px;
+	border: 8px solid #000000;
 }
 
 .tile:active {
@@ -120,7 +121,7 @@ p {
 	top:1px;
 }
 
-#red {
+/*#red {
 	border:8px solid red;
 }
 
@@ -134,7 +135,7 @@ p {
 
 #yellow {
 	border:8px solid #E89B0C;
-}
+}*/
 
 #red.bk {
 	background-color: red;

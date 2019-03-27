@@ -13,7 +13,11 @@ var best = 0;
 var displayRound = document.getElementById("round");
 var displayBest = document.getElementById("best");
 
+var timer = false;
+var randomise = false;
+var hideSteps = false;
 
+// not used for now
 var colourCode = {
     1: "red",
     2: "blue",
@@ -21,6 +25,7 @@ var colourCode = {
     4: "yellow",
 };
 
+//number of tiles/circles in play
 var tile = 4;
 
 
@@ -32,26 +37,26 @@ function generateSequence (roundNumber) {
     convert()
 };
 
-// convert generated sequence
+// convert generated sequence from number to colours
 function convert(){
-        for (var i = 0; i < sequence.length; i++) {
-            if (sequence[i] === 1) {
-                sequence[i] = "red";
-                // convertedSequence.push(sequence[i])
-            }
-            else if (sequence[i] === 2) {
-                sequence[i] = "blue";
-                // convertedSequence.push(sequence[i])
-            }
-            else if (sequence[i] === 3) {
-                sequence[i] = "green";
-                // convertedSequence.push(sequence[i])
-            }
-            else if (sequence[i] === 4) {
-                sequence[i] = "yellow";
-                // convertedSequence.push(sequence[i])
-            }
+    for (var i = 0; i < sequence.length; i++) {
+        if (sequence[i] === 1) {
+            sequence[i] = "red";
+            // convertedSequence.push(sequence[i])
         }
+        else if (sequence[i] === 2) {
+            sequence[i] = "blue";
+            // convertedSequence.push(sequence[i])
+        }
+        else if (sequence[i] === 3) {
+            sequence[i] = "green";
+            // convertedSequence.push(sequence[i])
+        }
+        else if (sequence[i] === 4) {
+            sequence[i] = "yellow";
+            // convertedSequence.push(sequence[i])
+        }
+    }
     console.log(sequence);
     // console.log(convertedSequence)
 }
@@ -90,15 +95,15 @@ function showSequence(){
 }
 
 function displayTile(value){
-        var lights = document.getElementById(value);
-        // console.log(lights);
-        setTimeout(function(){
-            lights.classList.add("bk");
-        }, (100+offset));
-        setTimeout(function(){
-            lights.classList.remove("bk");
-        }, (600+offset));
-        offset += 600;
+    var lights = document.getElementById(value);
+    // console.log(lights);
+    setTimeout(function(){
+        lights.classList.add("bk");
+    }, (500+offset));
+    setTimeout(function(){
+        lights.classList.remove("bk");
+    }, (900+offset));
+    offset += 600;
 }
 
 // add event listeners for clicks on tiles
