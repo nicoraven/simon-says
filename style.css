@@ -299,4 +299,7 @@ eight = olive B2B147
 	background-color: white;
 	display: none;
 	overflow: hidden;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.2s ease-out;
 }
