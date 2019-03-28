@@ -39,6 +39,7 @@ var randomise = false;
 
 // show extra tiles if true
 var hard = false;
+var hardButton = document.getElementById("hard");
 
 // hide previous steps during showSequence if true
 var hideSteps = false;
@@ -140,13 +141,20 @@ window.onload = function(){
     var start = document.getElementById("start");
     start.addEventListener('click', startGame);
     document.getElementById("reset").addEventListener('click', resetGame);
-    var hardTiles = document.getElementById("hard");
-    hardTiles.addEventListener('click', hardModeToggle);
+    hardButton.addEventListener('click', hardModeToggle);
 };
 
 // toggles hard mode on/off
 function hardModeToggle(){
     hard = !hard;
+    if (hard != true) {
+        // normal mode
+        hardButton.style.backgroundColor = "#FFF9FB"
+        }
+    else {
+        // hard mode
+        hardButton.style.backgroundColor = "#60B27B"
+    };
 }
 
 // in hard mode, show extra tiles
