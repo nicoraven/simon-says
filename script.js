@@ -349,8 +349,9 @@ function resetGame() {
     sequence = [];
     colourOrder = [];
     convertedSequence = [];
+    sequenceToShow = [];
     playerSequence = [];
-    tilesInPlay;
+    tilesInPlay = [];
     offset = 0;
     round = 0;
     displayRound.innerText = "";
