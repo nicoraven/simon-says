@@ -269,25 +269,26 @@ function listenToPlayer(){
 // remove event listeners for clicks on tiles
 function removePlayerListener(){
     if (hard != true) {
-        document.getElementById("red").addEventListener('click', pushPlayerSequence);
-        document.getElementById("blue").addEventListener('click', pushPlayerSequence);
-        document.getElementById("green").addEventListener('click', pushPlayerSequence);
-        document.getElementById("yellow").addEventListener('click', pushPlayerSequence);
+        document.getElementById("red").removeEventListener('click', pushPlayerSequence);
+        document.getElementById("blue").removeEventListener('click', pushPlayerSequence);
+        document.getElementById("green").removeEventListener('click', pushPlayerSequence);
+        document.getElementById("yellow").removeEventListener('click', pushPlayerSequence);
     }
     else {
-        document.getElementById("red").addEventListener('click', pushPlayerSequence);
-        document.getElementById("blue").addEventListener('click', pushPlayerSequence);
-        document.getElementById("green").addEventListener('click', pushPlayerSequence);
-        document.getElementById("yellow").addEventListener('click', pushPlayerSequence);
-        document.getElementById("purple").addEventListener('click', pushPlayerSequence);
-        document.getElementById("peach").addEventListener('click', pushPlayerSequence);
-        document.getElementById("brown").addEventListener('click', pushPlayerSequence);
-        document.getElementById("olive").addEventListener('click', pushPlayerSequence);
+        document.getElementById("red").removeEventListener('click', pushPlayerSequence);
+        document.getElementById("blue").removeEventListener('click', pushPlayerSequence);
+        document.getElementById("green").removeEventListener('click', pushPlayerSequence);
+        document.getElementById("yellow").removeEventListener('click', pushPlayerSequence);
+        document.getElementById("purple").removeEventListener('click', pushPlayerSequence);
+        document.getElementById("peach").removeEventListener('click', pushPlayerSequence);
+        document.getElementById("brown").removeEventListener('click', pushPlayerSequence);
+        document.getElementById("olive").removeEventListener('click', pushPlayerSequence);
     }
 };
 
 //add clicks into playerSequence
 function pushPlayerSequence(){
+    // if game is running = true, do this
     playerSequence.push(event.target.id);
     console.log("player Sequence: " + playerSequence);
     checkSequence();
